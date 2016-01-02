@@ -1,10 +1,12 @@
 package com.jdbc.demo.domain;
 
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+@XmlRootElement
 public class Vehicle {
 
     private int id;

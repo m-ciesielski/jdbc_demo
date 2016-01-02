@@ -1,5 +1,6 @@
 package com.jdbc.demo.domain;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 /**
  * Created by Mateusz on 22-Oct-15.
  */
+
+@XmlRootElement
 public class Driver {
 
 
