@@ -51,6 +51,7 @@ public class DriverServlet extends HttpServlet {
                     driver.setSalaryBonus(new BigDecimal(request.getParameter("salary-bonus")).setScale(2, BigDecimal.ROUND_CEILING));
                 driver.setDeleted(false);
                 driver.setAddress(addressEntityManager.get(Integer.parseInt(request.getParameter("address-id").trim())));
+
                 if (update){
                     driver.setId(Integer.parseInt(request.getParameter("id").trim()));
                     LOGGER.info("Updating driver:" + driver.toString());

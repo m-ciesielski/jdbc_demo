@@ -2,10 +2,11 @@ package com.jdbc.demo.web.rest;
 
 import com.jdbc.demo.VehicleDAO;
 import com.jdbc.demo.domain.Vehicle;
-import com.jdbc.demo.services.VehicleEntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -13,11 +14,14 @@ import java.util.List;
 /**
  * Created by Mateusz on 21-Dec-15.
  */
-@Path("test")
+
+@Stateless
+@Path("/vehicles")
 public class VehicleRestServlet {
     private final static Logger LOGGER = LoggerFactory.getLogger(VehicleRestServlet.class);
 
-    VehicleDAO vehicleManager = new VehicleEntityManager();
+    @EJB
+    VehicleDAO vehicleManager;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")

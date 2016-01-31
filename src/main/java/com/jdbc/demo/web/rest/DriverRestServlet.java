@@ -2,10 +2,11 @@ package com.jdbc.demo.web.rest;
 
 import com.jdbc.demo.DriverDAO;
 import com.jdbc.demo.domain.Driver;
-import com.jdbc.demo.services.DriverEntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -13,11 +14,13 @@ import java.util.List;
 /**
  * Created by Mateusz on 21-Dec-15.
  */
+@Stateless
 @Path("drivers")
 public class DriverRestServlet {
     private final static Logger LOGGER = LoggerFactory.getLogger(DriverRestServlet.class);
 
-    DriverDAO driverManager = new DriverEntityManager();
+    @EJB
+    private DriverDAO driverManager;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")

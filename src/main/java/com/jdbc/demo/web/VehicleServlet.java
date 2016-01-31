@@ -51,6 +51,7 @@ public class VehicleServlet extends HttpServlet {
                 vehicle.setVIN(request.getParameter("VIN"));
                 vehicle.setProductionDate(new Date(System.currentTimeMillis()));
                 vehicle.setAvailable(Boolean.parseBoolean(request.getParameter("available")));
+                
                 if (update) {
                     vehicle.setId(Integer.parseInt(request.getParameter("id").trim()));
                     LOGGER.info("Updating vehicle:" + vehicle.toString());
